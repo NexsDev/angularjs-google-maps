@@ -3000,6 +3000,13 @@ angular.module('ngMap', []);
     delete mapControllers[mapId];
   };
 
+  var deleteMapById = function(id){
+    var ctrl = mapControllers[id];
+    if(ctrl) {
+      deleteMap(mapControllers[id]);
+    }
+  }
+  
   /**
    * @memberof NgMap
    * @function getGeoLocation
@@ -3127,7 +3134,8 @@ angular.module('ngMap', []);
         initMap: initMap,
         setStyle: setStyle,
         getGeoLocation: getGeoLocation,
-        observeAndSet: observeAndSet
+        observeAndSet: observeAndSet,
+        deleteMapById : deleteMapById
       };
     };
     NgMap.$inject = [
